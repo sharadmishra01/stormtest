@@ -1,0 +1,39 @@
+Steps for running the storm test project:
+
+1. Get the projet from reposotory.
+
+2. Make sure all the jars from lib folder are also present.
+
+3. Class path is already edited but still make sure all the jars are available in the build path, these jars does everything for storm and twitter
+and tested for config.
+
+4. Install Memcached on the system (either windows or linux or ubuntu), make sure it is running while running the test query code.
+
+5. Check the port for Memcached, we are using memcached client jar to connect to memcache, we use "127.0.0.1" as IP address , it can be edited in
+MemcachedServer class for connection.
+
+6. Run the TestQuery class, you can edit the keyword which you want to search in Memcache and eventually wants to fetch from twitter if not present.
+
+Here:------------------------------------
+String keyword = "reservation";
+
+-----------------------------------------------------------------------
+
+7. These are twitter cerdentials to fetch the data in app, it is already set:
+
+"Qy5b24hTUlM9PchKyp1rbnDOz",
+					"GL78gicHGxZiBde4X02AMQOtj5uWQXCjQNLIR6h9A8zc7rhWA0",
+					"3377235640-RPd7LvAHyV1RxtfKAkQjc7o8jXXFH0ocUa1Gym6",
+					"5IHfMLjU5OOHRWUiZsu3gKPJDwD5rBePH85AXZDFN78TF",
+					
+8. The class searches the memcache, else fetches the data matching tuple from twitter and saves in Memcache, finally also gets the saved data 
+to show.
+
+9. Fetching the data is done by Twitter spout and saving in Memcache is done by Bolt, the all topology is deployed in local cluster.
+
+Hope it helps, version with more functionality can be added and in progress, also a spring web app integration.
+
+
+
+
+
